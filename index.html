@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Profil SMK PGRI 2 Ponorogo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #000; 
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- 4. Video Latar Belakang (HTML5 <video>) --- */
+        #background-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Lapisan 'gelap' agar teks mudah dibaca */
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: -1;
+        }
+
+        /* --- BAGIAN 1: HEADER (Hero) --- */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 90vh;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); 
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: cyan;
+            border: 2px solid cyan;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: cyan;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        /* --- BAGIAN 2: KONTEN (GLASSMORPHISM) --- */
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .glass-card {
+            /* INTI DARI 'GLASSMORPHISM' */
+            background: rgba(10, 10, 10, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: cyan; /* Biru Cyan Neon */
+            border-bottom: 2px solid cyan;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        /* --- Media Player (Audio) --- */
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* CSS untuk Video Lokal di Konten (Sudah Benar) */
+        .video-embed-container {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px; 
+            margin-top: 20px;
+        }
+
+        .video-embed-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Media Query untuk HP (Sudah Benar) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .media-grid {
+                grid-template-columns: 1fr; /* Tumpuk di HP */
+            }
+            .hero-content {
+                min-height: 80vh;
+            }
+        }
+        
+        /* CSS .video-link (Tombol Merah) sudah saya hapus
+          karena tidak dipakai lagi (Kode jadi lebih bersih).
+        */
+
+    </style>
+    </head>
+<body>
+
+    <video id="background-video" autoplay loop muted poster="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1740">
+        <source src="background.mp4" type="video/mp4">
+        Browser Anda tidak mendukung tag video.
+    </video>
+    
+    <div class="hero-overlay"></div>
+
+    <header class="hero-content">
+        <img src="https://ppdb.smkpgri2ponorogo.com/images/logo-pgri.png" alt="Logo Sekolah" class="logo">
+        
+        <h1>SMK PGRI 2 PONOROGO</h1>
+        <p class="tagline">Sekolah industri berbasis pondok pesantren</p>
+        
+        <a href="#tentang-kami" class="cta-button">Jelajahi Profil</a>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <section id="tentang-kami" class="glass-card">
+            <h2>Tentang Kami</h2>
+            <p>SMK PGRI 2 PONOROGO adalah salah satu sekolah menengah kejuruan paling populer di Daerah Ponorogo. Berlokasi di Jl. Soekarno - Hatta, Kertosari, Ponorogo, Jawa Timur. Sekolah ini mengajarkan kedisiplinan yang sangat ketat kepada siswa-siswanya, sehingga dapat melatih mental, sifat, dan perilaku mereka.</p>
+        </section>
+
+        <div class="media-grid">
+            <section id="media-audio" class="glass-card">
+                <h2>Musik Latar</h2>
+                <p>Memutar: Hindia - Kita Ke Sana</p>
+                
+                <audio controls loop>
+                    <source src="musik-hindia.mp3" type="audio/mpeg">
+                    Browser Anda tidak mendukung audio.
+                </audio>
+            </section>
+            
+            <section id="media-video-embed" class="glass-card">
+                <h2>Video Profil Resmi</h2>
+                <p>Video profil resmi sekolah.</p>
+                
+                <div class="video-embed-container">
+                    <video src="video_pgri.mp4" controls autoplay loop muted playsinline>
+                        Browser Anda tidak mendukung tag video.
+                    </video>
+                </div>
+
+            </section>
+        </div>
+        
+    </main>
+
+    </body>
+</html>
